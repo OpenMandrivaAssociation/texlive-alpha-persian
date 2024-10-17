@@ -3,7 +3,7 @@ Version:	66115
 Release:	1
 Summary:	Persian version of alpha.bst
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/alpha-persian
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/alpha-persian
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/alpha-persian.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/alpha-persian.doc.r%{version}.tar.xz
