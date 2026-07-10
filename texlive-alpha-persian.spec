@@ -1,37 +1,24 @@
-Name:		texlive-alpha-persian
-Version:	66115
-Release:	1
+%global tl_name alpha-persian
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.3
+Release:	%{tl_revision}.1
 Summary:	Persian version of alpha.bst
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/alpha-persian
+URL:		https://www.ctan.org/tex-archive/biblio/bibtex/contrib/alpha-persian
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/alpha-persian.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/alpha-persian.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/alpha-persian.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/alpha-persian.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides a Persian version of the alpha BibTeX
-style and offers several enhancements. It is compatible with
-the hyperref, url, natbib, and cite packages.
+The package provides a Persian version of the alpha BibTeX style and
+offers several enhancements. It is compatible with the hyperref, url,
+natbib, and cite packages.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/bibtex/bst/alpha-persian
-%doc %{_texmfdistdir}/doc/bibtex/alpha-persian
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
